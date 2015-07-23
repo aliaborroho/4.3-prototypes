@@ -74,15 +74,14 @@ console.assert(new Dog().says === 'life is ruff', 'all Dogs should have a method
 
 // -- ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ - Your Answer - ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ -- //
 
-function Cat() {
-
-}
+function Cat() {}
 
 Cat.prototype.growl = function() {
-  return 'meow';
+	return 'meow';
 };
 
 var garfield = new Cat();
+cat.growl();
 
 // -- ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ -- //
 
@@ -104,7 +103,11 @@ console.assert(garfield.growl() === 'meow', 'all cats should have a method `grow
 // prototype that is called `squeal` that returns the secret string.
 
 // -- ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ - Your Answer - ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ -- //
-
+function KeepSecret(secret) {
+	this.squeal = function() {
+		return secret;
+		};
+}
 // -- ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ -- //
 
 // ==== Validating =============================================== //
@@ -132,7 +135,18 @@ console.assert(dontTellNobody.squeal() === mySecret, 'Tell a secret when you `sq
 // the secret data.
 
 // -- ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ - Your Answer - ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ -- //
+function Key() {}
 
+function Safe(diamonds, key) {
+	this.unlock = function(unlockSafe) {
+		if (unlockSafe === key) {
+			return diamonds;
+		} else{
+			return 'Beware of dog';
+		}
+	};
+
+}
 // -- ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ -- //
 
 // ==== Validating =============================================== //
