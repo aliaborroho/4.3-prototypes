@@ -29,7 +29,8 @@
 // instance from it called `foo`.
 
 // -- ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ - Your Answer - ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ -- //
-function Foo() {}
+function Foo() {
+}
 
 var foo = new Foo();
 
@@ -74,14 +75,13 @@ console.assert(new Dog().says === 'life is ruff', 'all Dogs should have a method
 
 // -- ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ - Your Answer - ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ -- //
 
-function Cat() {}
+function Cat() {
+  this.growl = function(cat) {
+    return 'meow';
+  };
+}
 
-Cat.prototype.growl = function() {
-	return 'meow';
-};
-
-var garfield = new Cat();
-cat.growl();
+var cat = new Cat();
 
 // -- ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ -- //
 
@@ -104,10 +104,11 @@ console.assert(garfield.growl() === 'meow', 'all cats should have a method `grow
 
 // -- ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ - Your Answer - ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ -- //
 function KeepSecret(secret) {
-	this.squeal = function() {
-		return secret;
-		};
+  this.squeal = function() {
+    return secret;
+  };
 }
+
 // -- ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ -- //
 
 // ==== Validating =============================================== //
@@ -135,18 +136,20 @@ console.assert(dontTellNobody.squeal() === mySecret, 'Tell a secret when you `sq
 // the secret data.
 
 // -- ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ - Your Answer - ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ -- //
-function Key() {}
+function Key() {
+}
 
 function Safe(diamonds, key) {
-	this.unlock = function(unlockSafe) {
-		if (unlockSafe === key) {
-			return diamonds;
-		} else{
-			return 'Beware of dog';
-		}
-	};
-
+  this.unlock = function(unlockSafe) {
+    if (unlockSafe === key) {
+      return diamonds;
+    }
+    else {
+      return 'Beware of dog!';
+    }
+  };
 }
+
 // -- ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ -- //
 
 // ==== Validating =============================================== //
@@ -180,6 +183,17 @@ console.assert(safe.unlock(rightKey) === sensitive, 'valid keys should open the 
 // the string is a valid email address and false if it is not.
 
 // -- ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ - Your Answer - ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ -- //
+
+function Validator() {
+  this.email = function(email) {
+    if (email.indexOf('@') >= 0) {
+      return true;
+    }
+    else {
+      return false;
+    }
+  };
+}
 
 // -- ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ -- //
 
